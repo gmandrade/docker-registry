@@ -2,13 +2,26 @@
 ## Automation script
 ```
 # Without systemd configurations
-$ ./install.sh
+$ sudo ./install.sh
 or
 # With systemd configurations
-$ ./install.sh --with-systemd
+$ sudo ./install.sh --with-systemd
+```
+
+> Access http://localhost to see webadmin application
+
+## Push your images
+```
+$ docker push localhost/registry:stable
+$ docker push localhost/registry-webadmin:stable
 ```
 
 # Step by step
+## Build
+```
+$ docker build -t localhost/registry:stable registry/
+$ docker build -t localhost/registry-webadmin:stable registry-webadmin/
+```
 ## Network
 ```
 $ docker network create registry-net
@@ -94,10 +107,15 @@ $ systemctl status docker-registry-webadmin
 # Using ./controller.sh
 ## Start
 ```
-$ ./controller.sh start
+$ sudo ./controller.sh start
 ```
 
 ## Stop
 ```
-$ ./controller.sh stop
+$ sudo ./controller.sh stop
+```
+
+## Destroy
+```
+$ sudo ./controller.sh destroy
 ```
