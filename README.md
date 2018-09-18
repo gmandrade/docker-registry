@@ -90,3 +90,14 @@ $ systemctl stop docker-registry-webadmin
 $ systemctl status docker-registry 
 $ systemctl status docker-registry-webadmin
 ```
+
+# Using ./controller.sh
+## Start
+```
+$ ./controller.sh start
+```
+
+## Stop
+```
+$ ./controller.sh stop
+```
