@@ -10,7 +10,7 @@ create_func(){
 	echo "`date` INFO - Create netowrk 'registry-net'"
 	docker network create registry-net &> /dev/null
 	echo "`date` INFO - Run containers"
-	docker run --name registry -d --net registry-net --restart=always -v /mnt/volume/registry:/var/lib/registry localhost/registry:stable &> /dev/null 
+	docker run --name registry -d --net registry-net -v /mnt/volume/registry:/var/lib/registry localhost/registry:stable &> /dev/null 
 	docker run --name registry-webadmin -d --net registry-net -p 80:80 -e REGISTRY_URL=http://registry:5000 -e DELETE_IMAGES=true -e REGISTRY_TITLE="Personal Registry" localhost/registry-webadmin:stable &> /dev/null
 }
 

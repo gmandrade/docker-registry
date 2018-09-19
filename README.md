@@ -30,7 +30,7 @@ $ docker network create registry-net
 ## Registry
 > OBS: Take a look with your volume bind it's correct. In this case I mount /mnt/volume/registry
 ```
-$ docker run --name registry -d --net registry-net --restart=always -v /mnt/volume/registry:/var/lib/registry registry:2
+$ docker run --name registry -d --net registry-net -v /mnt/volume/registry:/var/lib/registry registry:2
 ```
 
 ## Registry Web Admin
