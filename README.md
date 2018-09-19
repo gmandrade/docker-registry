@@ -30,12 +30,12 @@ $ docker network create registry-net
 ## Registry
 > OBS: Take a look with your volume bind it's correct. In this case I mount /mnt/volume/registry
 ```
-$ docker run --name registry -d --net registry-net -v /mnt/volume/registry:/var/lib/registry registry:2
+$ docker run --name registry -d --net registry-net -v /mnt/volume/registry:/var/lib/registry localhost/registry:stable
 ```
 
 ## Registry Web Admin
 ```
-$ docker run --name registry-webadmin -d --net registry-net -p 80:80 -e REGISTRY_URL=http://registry:5000 -e DELETE_IMAGES=true -e REGISTRY_TITLE="Personal Registry" joxit/docker-registry-ui:static
+$ docker run --name registry-webadmin -d --net registry-net -p 80:80 -e REGISTRY_URL=http://registry:5000 -e DELETE_IMAGES=true -e REGISTRY_TITLE="Personal Registry" localhost/registry-webadmin:stable
 ```
 
 # Systemd files
