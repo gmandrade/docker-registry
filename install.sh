@@ -7,7 +7,7 @@ docker_build(){
 }
 
 create_func(){
-	echo "`date` INFO - Create netowrk 'registry-net'"
+	echo "`date` INFO - Create network 'registry-net'"
 	docker network create registry-net &> /dev/null
 	echo "`date` INFO - Run containers"
 	docker run --name registry -d --net registry-net -v /mnt/volume/registry:/var/lib/registry localhost/registry:stable &> /dev/null 
@@ -55,7 +55,7 @@ EOF
 	systemctl start docker-registry-webadmin &> /dev/null 
 }
 
-with_systemd_help() { echo "`date` ERROR - Usage: sudo ./install.sh [--with-systemd]" 1>&2; exit; }
+with_systemd_help() { echo "`date` ERROR - Usage: ./install.sh [--with-systemd]" 1>&2; exit; }
 
 if [[ -z $1 ]];then
 	docker_build
